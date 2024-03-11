@@ -32,6 +32,8 @@ class CharacterSprite(sprite.Sprite):
             self.move(0, -self.speed)
         if keys[K_DOWN]:
             self.move(0, self.speed)
+            
+            
 
     def collide(self, other_sprite):
         return self.rect.colliderect(other_sprite.rect)
