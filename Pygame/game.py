@@ -6,38 +6,39 @@ from Wall import Wall
 window = display.set_mode((1200, 800))
 display.set_caption("Catch")
 
-background = transform.scale(image.load("assets/background.jpg"), (1200, 800))
+background = transform.scale(image.load("assets/b2.jpeg"), (1200, 800))
 print("\t__\n__")
 window.blit(background, (0,0))
 # window.blit(background1, (250,250))
 
-c1 = CharacterSprite('assets/Cave_Vines.webp', 100, 100, 1)
-c2 = EnemySprite('assets/spider.webp', 100, 50, 0.5)
+c1 = CharacterSprite('assets/imagesa.png', 100, 100, 1)
+c2 = EnemySprite('assets/hot1.png', 100, 50, 0.5)
+c3 = EnemySprite('assets/hot2.png',0,0, 0.5)
 
 lavas = []
 for i in range(8):
-    lava = Wall("assets/lava.png",200+i*65,200)
+    lava = Wall("assets/endgame.jpg",200+i*65,200)
     lavas.append(lava)
 
 
 
 for i in range(8):
-    lava = Wall("assets/lava.png",200+i*65,200)
+    lava = Wall("assets/endgame.jpg",200+i*65,200)
     lavas.append(lava)
 
 
 for i in range(8):
-    lava3 = Wall("assets/lava.png",200+i*65,500)
+    lava3 = Wall("assets/endgame.jpg",200+i*65,500)
     lavas.append(lava3)
 
 
 for i in range(8):
-    lava4 = Wall("assets/lava.png",400,200+i*65)
+    lava4 = Wall("assets/endgame.jpg",400,200+i*65)
     lavas.append(lava4)
 
 
 for i in range(8):
-    lava8 = Wall("assets/lava.png",800,200+i*65)
+    lava8 = Wall("assets/endgame.jpg",800,200+i*65)
     lavas.append(lava8)
 
 
@@ -53,6 +54,7 @@ while game:
            game = False
     c1.update(window)
     c2.update(window)
+    c3.update(window)
     for lava in lavas:
         lava.update(window)
         if c1.collide(lava):
