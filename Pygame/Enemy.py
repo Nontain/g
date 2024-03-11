@@ -1,14 +1,18 @@
 from Character import CharacterSprite
 from pygame import *
 
-class EnemySprite(CharacterSprite):
-    def __init__(self, player_image, player_x, player_y, player_speed):
-        super().__init__(player_image, player_x, player_y, player_speed)
+class Enemy2Sprite(CharacterSprite):
+    def __init__(self, player2_image, player2_x, player2_y, player2_speed):
+        super().__init__(player2_image, player2_x, player2_y, player2_speed)
         self.direction_x = 1
         
     def move_horizontal(self):
-        if self.rect.x <= 0:
-            self.direction_x = 1
-        elif self.rect.x >= 635:
-            self.direction_x = -1
-        self.rect.x += self.speed * self.direction_x
+        keys = key.get_pressed()
+        if keys[K_LEFT]:
+            self.move(-self.speed, 0)
+        if keys[K_RIGHT]:
+            self.move(self.speed, 0)
+        if keys[K_UP]:
+            self.move(0, -self.speed)
+        if keys[K_DOWN]:
+            self.move(0, self.speed)
